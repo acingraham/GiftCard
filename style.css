@@ -1,0 +1,106 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    color: #551a8b;
+}
+
+@font-face {
+    font-family: LobsterTwo;
+    src: url('LobsterTwo-Regular.otf') format('opentype');
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-image: url('img/pink-background.jpg');
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    font-size: 4vmin;
+    font-family: LobsterTwo;
+}
+
+.card {
+    height: 62.5vmin;
+    width: 100vmin;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.page {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    cursor: pointer;
+    transition: transform 1s, left 1s;
+    transform-origin: 0;
+    transform-style: preserve-3d;
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+}
+
+.front, .back {
+    height: 100%; /* This should go elsewhere */
+    width: 100%;
+    box-shadow: 0 0 10px 0 #777;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: white;
+}
+
+.front {
+    z-index: 2;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.flower {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('img/flowers.png');
+}
+
+.control-panel {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn:hover {
+
+}
+
+.blank {
+    background-color: white;
+}
+
+.page:not(.flipped) {
+    z-index: 2;
+}
+
+.page:not(.flipped) ~ .page:not(.flipped) {
+    z-index: 0;
+}
+.paragraph {
+    margin: 0;
+    padding: 2vmin;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
